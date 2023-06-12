@@ -23,4 +23,15 @@ router.post('/', async (req, res) => {
   }
 });
 
+// get student per class
+
+router.get('/:id', async(req,res) =>{
+  const id = req.params.id
+  try {
+    const students = await Student.find({ class: id }).populate('class');
+    res.json(students);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+})
 module.exports = router;
