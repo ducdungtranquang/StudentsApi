@@ -13,7 +13,7 @@ const studentSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  class: {
+  classInfo: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Class',
     required: true

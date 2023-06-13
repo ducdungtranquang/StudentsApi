@@ -5,7 +5,7 @@ const Classes = require('../model/class');
 // Get all students
 router.get('/', async (req, res) => {
   try {
-    const students = await Student.find().populate('class');
+    const students = await Student.find().populate('classInfo');
     res.json(students);
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -28,7 +28,7 @@ router.post('/', async (req, res) => {
 router.get('/:id', async(req,res) =>{
   const id = req.params.id
   try {
-    const students = await Student.find({ class: id }).populate('class');
+    const students = await Student.find({ class: id }).populate('classInfo');
     res.json(students);
   } catch (err) {
     res.status(500).json({ error: err.message });
